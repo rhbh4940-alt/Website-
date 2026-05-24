@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Velriona Hub</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="sidebar-overlay"
+id="sidebarOverlay"></div>
+
+<div class="sidebar-menu"
+id="sidebarMenu">
+
+<div class="sidebar-header">
+
+<h2>
+Velriona Hub
+</h2>
+
+<span id="closeSidebar">
+×
+</span>
+
+</div>
+
+<div class="sidebar-links">
+
+<a href="#products">
+<span>🔥</span>
+<span>Trending Products</span>
+</a>
+
+<a href="#features">
+<span>⚡</span>
+<span>Features</span>
+</a>
+
+<a href="#faq">
+<span>❓</span>
+<span>FAQ</span>
+</a>
+
+</div>
+
+<div class="sidebar-setting-box">
+
+<h3 class="settings-title">
+⚙ Settings
+</h3>
+
+<!-- LANGUAGE -->
+
+<!-- LANGUAGE -->
+
+<div class="setting-item"
+id="languageSetting">
+
+🌐 Language
+
+</div>
+
+<div class="coming-language-box"
+id="languageComingSoonBox">
+
+<div class="coming-language-title">
+🇮🇳 Hindi Language
+</div>
+
+<div class="coming-language-text">
+Professional Hindi language support is
+coming soon in future updates.
+</div>
+
+</div>
+
+<div class="setting-item"
+onclick="toggleFontMenu()">
+🔤 Font Style
+</div>
+
+<div class="font-dropdown"
+id="fontDropdown">
+
+<button onclick="setFontStyle('normal')">
+Normal Font
+</button>
+
+<button onclick="setFontStyle('bold')">
+Bold Font
+</button>
+
+<button onclick="setFontStyle('italic')">
+Italic Font
+</button>
+
+</div>
+
+<div class="setting-item"
+onclick="toggleNotificationMenu()">
+🔔 Notifications
+</div>
+
+<div class="notification-dropdown"
+id="notificationDropdown">
+
+<button onclick="enableNotifications()">
+Turn ON Notifications
+</button>
+
+<button onclick="disableNotifications()">
+Turn OFF Notifications
+</button>
+
+</div>
+
+<div class="setting-item account-setting">
+
+<div class="setting-left">
+
+<span class="setting-icon">
+👤
+</span>
+
+<div>
+
+<div class="setting-main-text">
+Account
+</div>
+
+<div class="setting-sub-text">
+Profile & Login Settings
+</div>
+
+</div>
+
+</div>
+
+<span class="coming-soon-badge">
+Coming Soon
+</span>
+
+</div>
+
+<div class="setting-item"
+id="darkModeToggle">
+🌙 Dark Mode
+</div>
+
+</div>
+
+</div>
+
+<nav class="navbar">
+
+<div class="logo">
+Velriona Hub
+</div>
+
+<div class="nav-right">
+
+<div class="menu-toggle"
+id="menuToggle">
+☰
+</div>
+
+</div>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>
+Premium Electronics For Smart People
+</h1>
+
+<p>
+Velriona Hub provides premium gadgets,
+cashback offers and trusted shopping experience.
+</p>
+
+<button class="hero-btn">
+Explore Deals
+</button>
+
+</div>
+
+<div class="hero-image">
+
+<div class="hero-badge">
+57% OFF
+</div>
+
+<img
+src="https://raw.githubusercontent.com/rhbh4940-alt/Velriona-image/31b53408ee752b8a4e7546e58796f07a0429fa0d/rma-2306-realme-original-imahe6hbj9mmzzgk.jpeg"
+alt="realme Buds T110">
+
+</div>
+
+</section>
+
+<div class="search-box">
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search Electronics Products...">
+
+</div>
+
+<section class="products"
+id="products">
+
+<h2 class="section-title">
+Trending Electronics
+</h2>
+
+<div class="product-grid">
+
+<div class="product-card"
+data-name="realme buds t110">
+
+<div class="discount-badge">
+57% OFF
+</div>
+
+<div class="product-gallery">
+
+<div class="thumbnail-column">
+
+<img class="thumb active-thumb"
+src="https://raw.githubusercontent.com/rhbh4940-alt/Velriona-image/31b53408ee752b8a4e7546e58796f07a0429fa0d/rma-2306-realme-original-imahe6hbj9mmzzgk.jpeg"
+alt="thumbnail">
+
+</div>
+
+<div class="main-image-box">
+
+<img class="mainProductImage"
+src="https://raw.githubusercontent.com/rhbh4940-alt/Velriona-image/31b53408ee752b8a4e7546e58796f07a0429fa0d/rma-2306-realme-original-imahe6hbj9mmzzgk.jpeg"
+alt="realme Buds T110">
+
+</div>
+
+</div>
+
+<div class="product-content">
+
+<h3>
+realme Buds T110
+</h3>
+
+<p>
+AI ENC Calling • 38 Hours Playback • Bluetooth 5.4
+</p>
+
+<div class="rating-row">
+
+<span>
+⭐⭐⭐⭐☆
+</span>
+
+<span class="rating-text">
+4.4 Rating
+</span>
+
+</div>
+
+<div class="price-row">
+
+<div class="new-price">
+₹1,299
+</div>
+
+<div class="old-price">
+₹2,999
+</div>
+
+</div>
+
+<div class="save-tag">
+You Save ₹1,700
+</div>
+
+<div class="delivery-box">
+Delivery in 3-5 Days • Warranty Included
+</div>
+
+<a href="https://fktr.in/znF0wR9"
+target="_blank">
+
+<button class="buy-btn">
+Buy Now
+</button>
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="features"
+id="features">
+
+<h2 class="section-title">
+Why Choose Velriona?
+</h2>
+
+<div class="feature-grid">
+
+<div class="feature-box">
+
+<div class="feature-icon">
+⚡
+</div>
+
+<h3>
+Fast Delivery
+</h3>
+
+<p>
+Quick shipping support available.
+</p>
+
+</div>
+
+<div class="feature-box">
+
+<div class="feature-icon">
+🔒
+</div>
+
+<h3>
+Secure Shopping
+</h3>
+
+<p>
+Safe and secure ordering experience.
+</p>
+
+</div>
+
+<div class="feature-box">
+
+<div class="feature-icon">
+🎧
+</div>
+
+<h3>
+Premium Gadgets
+</h3>
+
+<p>
+Latest trending electronics products.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="faq"
+id="faq">
+
+<h2 class="section-title">
+Frequently Asked Questions
+</h2>
+
+<div class="faq-box">
+
+<h3>
+Do you provide COD?
+</h3>
+
+<p>
+Yes, COD available on selected products.
+</p>
+
+</div>
+
+<div class="faq-box">
+
+<h3>
+How much delivery time?
+</h3>
+
+<p>
+Usually 3-7 working days.
+</p>
+
+</div>
+
+</section>
+
+<a class="floating-contact"
+href="https://wa.me/919975850467"
+target="_blank">
+💬
+</a>
+
+<footer>
+
+<p>
+© 2026 Velriona Hub.
+All Rights Reserved.
+</p>
+
+</footer>
+
+<div class="notification-popup"
+id="notificationPopup">
+
+<div class="notification-box">
+
+<h2>
+🔔 Enable Notifications
+</h2>
+
+<p>
+Get daily updates and electronics alerts from Velriona Hub.
+</p>
+
+<div class="notification-buttons">
+
+<button onclick="acceptNotifications()">
+Allow
+</button>
+
+<button onclick="closeNotificationPopup()">
+Maybe Later
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

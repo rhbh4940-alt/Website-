@@ -21,18 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeSidebar =
     document.getElementById('closeSidebar');
 
-    function closeSidebarMenu(){
-
-        if(sidebarMenu){
-            sidebarMenu.classList.remove('active');
-        }
-
-        if(sidebarOverlay){
-            sidebarOverlay.classList.remove('active');
-        }
-
-    }
-
     if(menuToggle){
 
         menuToggle.addEventListener('click', () => {
@@ -47,19 +35,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(closeSidebar){
 
-        closeSidebar.addEventListener(
-            'click',
-            closeSidebarMenu
-        );
+        closeSidebar.addEventListener('click', closeSidebarMenu);
 
     }
 
     if(sidebarOverlay){
 
-        sidebarOverlay.addEventListener(
-            'click',
-            closeSidebarMenu
-        );
+        sidebarOverlay.addEventListener('click', closeSidebarMenu);
+
+    }
+
+    function closeSidebarMenu(){
+
+        sidebarMenu.classList.remove('active');
+
+        sidebarOverlay.classList.remove('active');
 
     }
 
@@ -70,29 +60,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const darkModeToggle =
     document.getElementById('darkModeToggle');
 
-    if(localStorage.getItem(
-        'velrionaDarkMode'
-    ) === 'enabled'){
+    if(localStorage.getItem('velrionaDarkMode') === 'enabled'){
 
-        document.body.classList.add(
-            'dark-mode'
-        );
+        document.body.classList.add('dark-mode');
 
     }
 
     if(darkModeToggle){
 
-        darkModeToggle.addEventListener(
-            'click',
-            () => {
+        darkModeToggle.addEventListener('click', () => {
 
-            document.body.classList.toggle(
-                'dark-mode'
-            );
+            document.body.classList.toggle('dark-mode');
 
-            if(document.body.classList.contains(
-                'dark-mode'
-            )){
+            if(document.body.classList.contains('dark-mode')){
 
                 localStorage.setItem(
                     'velrionaDarkMode',
@@ -126,9 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(searchInput){
 
-        searchInput.addEventListener(
-            'keyup',
-            () => {
+        searchInput.addEventListener('keyup', () => {
 
             const value =
             searchInput.value.toLowerCase();
@@ -165,23 +143,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if(heroBtn){
 
-        heroBtn.addEventListener(
-            'click',
-            () => {
+        heroBtn.addEventListener('click', () => {
 
-            const productSection =
-            document.getElementById('products');
+            window.scrollTo({
 
-            if(productSection){
+                top:700,
+                behavior:'smooth'
 
-                window.scrollTo({
-
-                    top:productSection.offsetTop,
-                    behavior:'smooth'
-
-                });
-
-            }
+            });
 
         });
 
@@ -196,39 +165,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     thumbnails.forEach(thumb => {
 
-        thumb.addEventListener(
-            'click',
-            () => {
+        thumb.addEventListener('click', () => {
 
             const productCard =
             thumb.closest('.product-card');
 
-            if(!productCard) return;
-
             const mainImage =
-            productCard.querySelector(
-                '.mainProductImage'
-            );
+            productCard.querySelector('.mainProductImage');
 
-            if(mainImage){
-
-                mainImage.src = thumb.src;
-
-            }
+            mainImage.src = thumb.src;
 
             productCard
             .querySelectorAll('.thumb')
             .forEach(img => {
 
-                img.classList.remove(
-                    'active-thumb'
-                );
+                img.classList.remove('active-thumb');
 
             });
 
-            thumb.classList.add(
-                'active-thumb'
-            );
+            thumb.classList.add('active-thumb');
 
         });
 
@@ -237,13 +192,32 @@ document.addEventListener('DOMContentLoaded', () => {
     /* =========================
     LANGUAGE SYSTEM
     ========================= */
-window.showHindiComingSoon = function(){
 
-    alert(
-        '🇮🇳 Hindi Language Coming Soon'
-    );
+    window.toggleLanguageMenu = function(){
 
-}
+        const dropdown =
+        document.getElementById('languageDropdown');
+
+        if(dropdown){
+
+            dropdown.classList.toggle('active');
+
+        }
+
+    }
+
+    window.changeLanguage = function(lang){
+
+        localStorage.setItem(
+            'velrionaLanguage',
+            lang
+        );
+
+        alert(
+            '✅ Language Updated Successfully'
+        );
+
+    }
 
     /* =========================
     FONT STYLE SYSTEM
@@ -252,15 +226,11 @@ window.showHindiComingSoon = function(){
     window.toggleFontMenu = function(){
 
         const dropdown =
-        document.getElementById(
-            'fontDropdown'
-        );
+        document.getElementById('fontDropdown');
 
         if(dropdown){
 
-            dropdown.classList.toggle(
-                'active'
-            );
+            dropdown.classList.toggle('active');
 
         }
 
@@ -343,73 +313,73 @@ window.showHindiComingSoon = function(){
     ========================= */
 
     const accountItem =
-    document.querySelectorAll(
-        '.account-setting'
-    );
+    document.querySelectorAll('.setting-item');
 
     accountItem.forEach(item => {
 
-        item.addEventListener(
-            'click',
-            () => {
+        if(item.innerText.includes('Account')){
 
-            let existingBox =
-            document.getElementById(
-                'comingSoonBox'
-            );
+            item.addEventListener('click', () => {
 
-            if(existingBox){
+                let existingBox =
+                document.getElementById(
+                    'comingSoonBox'
+                );
 
-                existingBox.remove();
-                return;
+                if(existingBox){
 
-            }
+                    existingBox.remove();
 
-            const comingSoon =
-            document.createElement('div');
+                    return;
 
-            comingSoon.id =
-            'comingSoonBox';
+                }
 
-            comingSoon.innerHTML = `
+                const comingSoon =
+                document.createElement('div');
 
-            <div style="
-            background:#0f172a;
-            color:white;
-            padding:18px;
-            border-radius:18px;
-            margin-top:12px;
-            line-height:1.7;
-            box-shadow:0 10px 25px rgba(0,0,0,0.2);
-            ">
+                comingSoon.id =
+                'comingSoonBox';
 
-            <h3 style="
-            font-size:18px;
-            margin-bottom:8px;
-            color:#60a5fa;
-            ">
-            🚀 Account System
-            </h3>
+                comingSoon.innerHTML = `
+                <div style="
+                background:#0f172a;
+                color:white;
+                padding:18px;
+                border-radius:18px;
+                margin-top:12px;
+                line-height:1.7;
+                box-shadow:0 10px 25px rgba(0,0,0,0.2);
+                animation:fadeIn 0.3s ease;
+                ">
 
-            <p style="
-            font-size:14px;
-            color:#d1d5db;
-            ">
-            Login & profile features are
-            coming soon in future updates.
-            Stay connected with Velriona Hub.
-            </p>
+                <h3 style="
+                font-size:18px;
+                margin-bottom:8px;
+                color:#60a5fa;
+                ">
+                🚀 Account System
+                </h3>
 
-            </div>
+                <p style="
+                font-size:14px;
+                color:#d1d5db;
+                ">
+                Login & profile features are
+                coming soon in future updates.
+                Stay connected with Velriona Hub.
+                </p>
 
-            `;
+                </div>
+                `;
 
-            item.insertAdjacentElement(
-                'afterend',
-                comingSoon
-            );
+                item.insertAdjacentElement(
+                    'afterend',
+                    comingSoon
+                );
 
-        });
+            });
+
+        }
 
     });
 
@@ -462,6 +432,16 @@ window.showHindiComingSoon = function(){
             '✅ Notifications Enabled Successfully'
         );
 
+        /* FAKE REMINDER */
+
+        setTimeout(() => {
+
+            alert(
+                '🔔 AAJ CHECK NAHI KIYE'
+            );
+
+        },86400000);
+
     }
 
     /* =========================
@@ -479,7 +459,7 @@ window.showHindiComingSoon = function(){
     }
 
     /* =========================
-    ENABLE / DISABLE NOTIFICATIONS
+    ENABLE / DISABLE BUTTONS
     ========================= */
 
     window.enableNotifications = function(){
@@ -515,32 +495,21 @@ window.showHindiComingSoon = function(){
     document.querySelectorAll('a')
     .forEach(anchor => {
 
-        anchor.addEventListener(
-            'click',
-            function(e){
+        anchor.addEventListener('click', function(e){
 
             const href =
             this.getAttribute('href');
 
-            if(
-                href &&
-                href.startsWith('#')
-            ){
+            if(href.startsWith('#')){
 
                 e.preventDefault();
 
-                const target =
-                document.querySelector(href);
+                document.querySelector(href)
+                .scrollIntoView({
 
-                if(target){
+                    behavior:'smooth'
 
-                    target.scrollIntoView({
-
-                        behavior:'smooth'
-
-                    });
-
-                }
+                });
 
             }
 
@@ -569,36 +538,227 @@ window.showHindiComingSoon = function(){
     console.log(
         '✅ Velriona Hub Loaded Successfully'
     );
-
-});
 /* =========================
-LANGUAGE COMING SOON
+MODERN CHATBOT
 ========================= */
 
-const languageSetting =
-document.getElementById(
-    'languageSetting'
-);
+const chatbotToggle =
+document.getElementById("chatbotToggle");
 
-const languageComingSoonBox =
-document.getElementById(
-    'languageComingSoonBox'
-);
+const chatbotBox =
+document.getElementById("chatbotBox");
 
-if(languageSetting){
+const closeChatbot =
+document.getElementById("closeChatbot");
 
-    languageSetting.addEventListener(
-        'click',
-        () => {
+const chatMessages =
+document.getElementById("chatMessages");
 
-        if(languageComingSoonBox){
+const chatInput =
+document.getElementById("chatInput");
 
-            languageComingSoonBox.classList.toggle(
-                'active'
-            );
+const sendChat =
+document.getElementById("sendChat");
 
-        }
+if(chatbotToggle){
 
-    });
+chatbotToggle.onclick = ()=>{
+
+chatbotBox.classList.add("active");
+
+};
 
 }
+
+if(closeChatbot){
+
+closeChatbot.onclick = ()=>{
+
+chatbotBox.classList.remove("active");
+
+};
+
+}
+
+function addBotMessage(text){
+
+const msg =
+document.createElement("div");
+
+msg.className =
+"bot-message";
+
+msg.innerText =
+text;
+
+chatMessages.appendChild(msg);
+
+chatMessages.scrollTop =
+chatMessages.scrollHeight;
+
+}
+
+function addUserMessage(text){
+
+const msg =
+document.createElement("div");
+
+msg.className =
+"user-message";
+
+msg.innerText =
+text;
+
+chatMessages.appendChild(msg);
+
+chatMessages.scrollTop =
+chatMessages.scrollHeight;
+
+}
+
+function getReply(message){
+
+message =
+message.toLowerCase();
+
+if(
+message.includes("fan")
+||
+message.includes("summer")
+||
+message.includes("cooling")
+){
+
+return "🌬️ I recommend TSEL Rechargeable Hand Fan. It's portable, rechargeable and perfect for summer.";
+
+}
+
+if(
+message.includes("speaker")
+||
+message.includes("music")
+||
+message.includes("bass")
+){
+
+return "🔊 TRIGGR Horizon 16 is a great option with strong bass and Bluetooth connectivity.";
+
+}
+
+if(
+message.includes("buds")
+||
+message.includes("earbuds")
+||
+message.includes("calling")
+){
+
+return "🎧 realme Buds T110 is a solid choice for calling, music and daily use.";
+
+}
+
+if(
+message.includes("best")
+||
+message.includes("deal")
+){
+
+return "🔥 Tell me your requirement and I'll suggest the most suitable deal available.";
+
+}
+
+return "👋 Please tell me what kind of product you're looking for. I can help with earbuds, speakers and cooling products.";
+
+}
+
+function sendMessage(){
+
+const message =
+chatInput.value.trim();
+
+if(!message) return;
+
+addUserMessage(message);
+
+chatInput.value = "";
+
+setTimeout(()=>{
+
+addBotMessage(
+getReply(message)
+);
+
+},500);
+
+}
+
+if(sendChat){
+
+sendChat.addEventListener(
+"click",
+sendMessage
+);
+
+}
+
+if(chatInput){
+
+chatInput.addEventListener(
+"keypress",
+function(e){
+
+if(e.key === "Enter"){
+
+sendMessage();
+
+}
+
+});
+
+}
+
+document.querySelectorAll(".quick-btn")
+.forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+const text =
+btn.innerText;
+
+let reply = "";
+
+if(text.includes("Earbuds")){
+
+reply =
+"🎧 I recommend realme Buds T110.";
+
+}
+
+else if(text.includes("Speakers")){
+
+reply =
+"🔊 TRIGGR Horizon 16 is a great speaker choice.";
+
+}
+
+else if(text.includes("Cooling")){
+
+reply =
+"🌬️ TSEL Rechargeable Hand Fan is perfect for summer.";
+
+}
+
+else{
+
+reply =
+"🔥 TSEL Rechargeable Hand Fan currently offers excellent value.";
+
+}
+
+addBotMessage(reply);
+
+});
+
+});
+
+});

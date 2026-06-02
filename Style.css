@@ -854,3 +854,34 @@ font-size:15px;
 body.dark-mode .about-box{
 background:#1f1f1f;
 }
+.contact-section{
+padding:60px 8%;
+}
+
+.contact-box{
+background:#ffffff;
+padding:30px;
+border-radius:16px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+text-align:center;
+}
+
+.contact-item{
+margin:15px 0;
+font-size:16px;
+font-weight:500;
+}
+
+.contact-item a{
+text-decoration:none;
+color:inherit;
+font-weight:600;
+}
+
+.contact-item a:hover{
+text-decoration:underline;
+}
+
+body.dark-mode .contact-box{
+background:#1f1f1f;
+}

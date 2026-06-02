@@ -838,3 +838,19 @@ color:white;
 }
 
 .dark
+.about-section{
+padding:60px 8%;
+}
+
+.about-box{
+background:#ffffff;
+padding:30px;
+border-radius:16px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+line-height:1.8;
+font-size:15px;
+}
+
+body.dark-mode .about-box{
+background:#1f1f1f;
+}
